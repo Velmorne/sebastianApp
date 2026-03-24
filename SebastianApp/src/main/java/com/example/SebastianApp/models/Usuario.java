@@ -1,17 +1,21 @@
 package com.example.SebastianApp.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 
 import java.util.UUID;
 @Entity
 @Table (name = "usuario")
 public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String nombre;
     private String correo;
     private String rol;
+
+    public Usuario() {
+    }
 
     public Usuario(UUID id, String nombre, String correo, String rol) {
         this.id = id;

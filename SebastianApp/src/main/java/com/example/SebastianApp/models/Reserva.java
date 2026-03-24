@@ -1,16 +1,20 @@
 package com.example.SebastianApp.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 @Entity
 @Table (name = "reserva")
 public class Reserva {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private LocalDateTime fechas;
     private String tiempos;
+
+    public Reserva() {
+    }
 
     public Reserva(UUID id, LocalDateTime fechas, String tiempos) {
         this.id = id;

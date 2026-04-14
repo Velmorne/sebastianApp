@@ -13,15 +13,17 @@ public class Usuario {
     private String nombre;
     private String correo;
     private String rol;
+    private String contraseña;
 
     public Usuario() {
     }
 
-    public Usuario(UUID id, String nombre, String correo, String rol) {
+    public Usuario(UUID id, String nombre, String correo, String rol, String contraseña) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.rol = rol;
+        this.contraseña = contraseña;
     }
 
     public UUID getId() {
@@ -54,5 +56,13 @@ public class Usuario {
 
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 }

@@ -53,10 +53,18 @@ public class ReservaServicio {
         return this.iRepositorioReserva.save(reserva_que_encontre);
     }
 
-    public boolean editarReservaEnDB(UUID id){
+    public boolean eliminarReservaEnDB(UUID id){
         // Buscar y validar si el ID que me envian existe
         //Elimino el regitro en DB
-        return false;
+        Optional<Reserva>reserva_que_estoy_buscando=this.iRepositorioReserva.findById(id);
+        if (reserva_que_estoy_buscando.isEmpty()){
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "La reserva que quieres eliminar, no existe en BD");
+        }
+        Reserva reserva_que_encontre=reserva_que_estoy_buscando.get();
+        this.iRepositorioReserva.deleteById(id);
+
+        return true;
     }
 
     public List<Reserva>  buscarReservaEnDB(){

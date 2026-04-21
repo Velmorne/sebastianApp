@@ -1,6 +1,7 @@
 package com.example.SebastianApp.servios;
 
 import com.example.SebastianApp.models.Espacio;
+import com.example.SebastianApp.models.Usuario;
 import com.example.SebastianApp.repositorios.IRepositorioEspacio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,8 +58,15 @@ public class EspacioServicio {
     public boolean eliminarEspacioEnDB(UUID id){
         // Buscar y validar si el ID que me envian existe
         //Elimino el regitro en DB
-        return false;
+        Optional<Espacio>espacio_que_estoy_buscando=this.repositorioEspacio.findById(id);
+        if (espacio_que_estoy_buscando.isEmpty()){
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "El usuario que quieres eliminar, no existe en BD");
+        }
+        Espacio espacio_que_encontre=espacio_que_estoy_buscando.get();
+        this.repositorioEspacio.deleteById(id);
 
+        return true;
     }
 
     public List<Espacio> buscarEspacioEnDB(){

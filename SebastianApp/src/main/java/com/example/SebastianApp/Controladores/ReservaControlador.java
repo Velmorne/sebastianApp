@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/sebastianApp/v1/usuario")
+@RequestMapping("/sebastianApp/v1/reserva")
 public class ReservaControlador {
     // por cada servicio ofrecido, configuro una funcion controladora
     @Autowired

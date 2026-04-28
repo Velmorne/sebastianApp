@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.UUID;
 @Entity
+// LAS CLASES QUE REPRESENTA LAS TABLAS
 @Table (name = "espacio")
 public class Espacio {
     @Id

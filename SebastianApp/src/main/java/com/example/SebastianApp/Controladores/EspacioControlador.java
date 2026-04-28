@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
+//  EN LA CAPA DE CONTROLADORES RESIDEN LAS DEPENDENCIAS (RESIVE  LAS PETICIONES HTTP)
+
 @RestController
 @RequestMapping("/sebastianApp/v1/espacio")
 public class EspacioControlador {
